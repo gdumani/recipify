@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
+  before_action :redirect_if_signed_in, only: [:new]
 
   # GET /users or /users.json
   def index
@@ -65,5 +66,16 @@ class UsersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:name)
+  end
+
+  # if user is logged in, redirect to root_path (home page) 
+  def redirect_if_signed_in
+    redirect_to root_path if user_signed_in?
+  end
+
+  protected
+
+  def after_sign_in_path_for(resource)
+    foods_path
   end
 end

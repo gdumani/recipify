@@ -1,0 +1,40 @@
+:root {
+  --app-primary-color: #007bff;
+  --app-secondary-color: #6c757d;
+  --app-success-color: #28a745; 
+  --app-info-color: #17a2b8; 
+  --app-warning-color: #ffc107;
+  --app-danger-color: #dc3545; 
+}
+
+:root {
+  --background-color: #f8f9fa; 
+  --navbar-bg-color: #343a40; 
+}
+
+:root {
+  --text-color: #333; 
+  --link-color: #007bff; 
+}
+
+ /* creates a background image for the entire page */
+body {
+  background-image: url('app-background.avif'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* creates a semi-transparent white background for the entire page */
+.app-cnt {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
