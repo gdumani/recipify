@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :foods, dependent: :destroy
-  has many :recipipes, dependent: :destroy
+  has_many :recipipes, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50, minimum: 1 }
 end
