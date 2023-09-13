@@ -5,10 +5,16 @@ Rails.application.routes.draw do
   end
 
   resources :recipe_foods
-  resources :foods
+  resources :foods 
   resources :recipes
   resources :users
   
+  resources :foods do
+    member do
+      delete 'delete', to: 'foods#destroy', as: 'delete'
+    end
+  end
+
   # Defines the root path route ("/")
   root 'foods#index'
 end
