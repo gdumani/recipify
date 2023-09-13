@@ -19,16 +19,16 @@
 
 body {
   background-image: url('welcome.avif'); 
-  background-size: cover; 
-  background-repeat: no-repeat; 
-  background-attachment: fixed; 
-  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment:scroll;
+  background-position: center;
 }
 
 .welcome-cnt {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 100vh;
   text-align: center;
 }

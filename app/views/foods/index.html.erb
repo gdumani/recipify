@@ -25,14 +25,11 @@
           <td><%= number_to_currency(food.price) %></td>
           <td>
             <div class="container text-center d-flex justify-content-center gap-1">
-              <%= link_to "Edit", edit_food_path(food), class: 'btn btn-warning btn-sm mr-2' %>
-              <div class='cnt-w5'>
-                <%= form_with(url: delete_food_path(food), method: :delete, remote: true) do |form| %>
-                  <%= form.button type: :submit, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure you?' } do %>
-                    Delete
-                  <% end %>
+              <%= form_with(url: delete_food_path(food), method: :delete, remote: true) do |form| %>
+                <%= form.button type: :submit, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure you?' } do %>
+                  Delete
                 <% end %>
-              </div>
+              <% end %>
             </div>
           </td>
         </tr>
