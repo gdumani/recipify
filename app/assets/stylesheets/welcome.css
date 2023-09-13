@@ -26,3 +26,11 @@ body {
   height: 100vh;
   text-align: center;
 }
+
+.notice {
+  color: #28a745;
+}
+
+.alert {
+  color: #dc3545;
+}
