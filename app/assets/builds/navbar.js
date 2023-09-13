@@ -24,7 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.style.display = 'none';
   });
 
+<<<<<<< HEAD
 // hides menu when window is resized
+=======
+// Agrega un evento de redimensionamiento de ventana para ocultar el menú dropdown
+>>>>>>> 8c9062bf497f46e7ae29d493eb1515ceba915edd
   window.addEventListener('resize', function() {
     if (window.innerWidth >= 768) { // Cambia 768 al ancho de pantalla deseado
       menuDropdown.style.display = 'none';
