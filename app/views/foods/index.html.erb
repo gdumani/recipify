@@ -1,14 +1,39 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Foods</h1>
-
-<div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h1 class="display-4 text-left label-left">Foods</h1>
+    </div>
+    <div class="col-4 text-right label-right mt-md-4 ">
+      <%= link_to "Add Food", new_food_path, class: 'btn btn-primary px-sm-2 px-md-3' %>
+    </div>
+  </div>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= number_to_currency(food.price) %></td>
+          <td>
+            <div class="container text-center d-flex justify-content-center gap-1">
+              <%= form_with(url: delete_food_path(food), method: :delete, remote: true) do |form| %>
+                <%= form.button type: :submit, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure you?' } do %>
+                  Delete
+                <% end %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New food", new_food_path %>

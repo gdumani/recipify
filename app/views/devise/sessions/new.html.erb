@@ -1,15 +1,16 @@
-<div class="welcome-text-cnt text-center mt-5">
-  <h2>Log in</h2>
+<div class="container welcome-text-cnt text-center">
+  <h2 class='display-4'>Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%# <div class="field"> %>
+    <div class="d-flex flex-row align-items-center justify-content-center mb-2">
+      <%= f.label :email, class: 'col-form-label col-2 label-right px-3' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
+    <div class="d-flex flex-row align-items-center justify-content-center mb-2">
+      <%= f.label :password, class: 'col-form-label col-2 label-right px-3' %>
+      <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
     </div>
 
     <% if devise_mapping.rememberable? %>
