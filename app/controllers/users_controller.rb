@@ -67,14 +67,14 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name)
   end
 
-  # if user is logged in, redirect to root_path (home page) 
+  # if user is logged in, redirect to root_path (home page)
   def redirect_if_signed_in
     redirect_to root_path if user_signed_in?
   end
 
   protected
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     foods_path
   end
 end
