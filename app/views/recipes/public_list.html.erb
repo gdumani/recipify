@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+<div class='container d-flex justify-content-start' >
+  <h1>Public Recipes</h1>
+</div>
+
+<ul class = "list-group">
+  <% @recipes.each do |recipe| %>
+      <%= link_to (render public_recipe), recipe, class:'text-decoration-none' %>
+  <% end %>
+<ul>
