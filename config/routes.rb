@@ -6,11 +6,8 @@ Rails.application.routes.draw do
 
   resources :recipe_foods
   resources :foods 
-
-  resource :recipes do
-    get 'public_list'
-  end
   resources :recipes
+  get 'recipes_public', to: 'recipes#public_list', as: 'recipes_public_list'
 
   resources :users
   resources :foods do
