@@ -6,9 +6,13 @@ Rails.application.routes.draw do
 
   resources :recipe_foods
   resources :foods 
+
+  resource :recipes do
+    get 'public_list'
+  end
   resources :recipes
+
   resources :users
-  
   resources :foods do
     member do
       delete 'delete', to: 'foods#destroy', as: 'delete'
