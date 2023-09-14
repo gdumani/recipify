@@ -1,7 +1,6 @@
 require 'rails_helper'
 require_relative 'test_helper'
 
-
 RSpec.describe 'Foods Index Page', type: :system do
   add_info_to_db
 
