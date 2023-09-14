@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, :set_recipe, only: %i[show edit update destroy]
+  before_action :authenticate_user!
+  before_action :set_recipe, except: %i[index new create public_list]
 
   # GET /recipes or /recipes.json
   def index
