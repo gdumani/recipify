@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
   end
 
   def public_list
-    @recipes = Recipe.where(public).includes(:user)
+    @recipes = Recipe.where(public: true).includes(:user)
   end
 
   # GET /recipes/1 or /recipes/1.json

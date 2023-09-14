@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   resources :recipe_foods
   resources :foods 
 
-  resources :recipes
   resource :recipes do
     get 'public_list'
   end
+  resources :recipes
 
   resources :users
   resources :foods do
