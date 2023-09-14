@@ -13,7 +13,7 @@ RSpec.describe RecipeFood, type: :model do
       measurement_unit: 'grams',
       price: 10.99,
       quantity: 100,
-      user: user
+      user:
     )
 
     recipe = Recipe.create(
@@ -21,12 +21,12 @@ RSpec.describe RecipeFood, type: :model do
       preparation_time: 30,
       cooking_time: 60,
       description: 'A delicious recipe.',
-      user: user
+      user:
     )
 
     recipe_food = RecipeFood.new(
-      recipe: recipe,
-      food: food,
+      recipe:,
+      food:,
       quantity: 2
     )
 
@@ -48,5 +48,4 @@ RSpec.describe RecipeFood, type: :model do
 
     expect(recipe_food).to_not be_valid
   end
-
 end

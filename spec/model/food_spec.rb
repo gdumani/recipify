@@ -13,7 +13,7 @@ RSpec.describe Food, type: :model do
       measurement_unit: 'Unit',
       price: 10.99,
       quantity: 5,
-      user: user
+      user:
     )
 
     expect(food).to be_valid

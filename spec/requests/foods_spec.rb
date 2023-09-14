@@ -3,21 +3,20 @@ require_relative 'test_helper'
 
 
 RSpec.describe 'Foods Index Page', type: :system do
-  
   add_info_to_db
- 
-  describe "the signin process", type: :feature do
+
+  describe 'the signin process', type: :feature do
     it "signs not me in, because I don't have a valid email" do
-      login("wrong@example.com", "badpassword")
-      expect(page).to have_content 'Invalid' 
+      login('wrong@example.com', 'badpassword')
+      expect(page).to have_content 'Invalid'
     end
 
-    it "signs me in" do
+    it 'signs me in' do
       login(user.email, user.password)
       expect(page).to have_content 'Recipify' # Name of the app at the top (navbar)
     end
-  end 
-    
+  end
+
   scenario 'User can see the list of foods' do
     login(user.email, user.password)
     visit foods_path

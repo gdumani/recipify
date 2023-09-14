@@ -22,7 +22,7 @@ def add_info_to_db
       measurement_unit: 'Grams',
       price: 5.99,
       quantity: 10,
-      user: user
+      user:
     )
   end
 
@@ -32,7 +32,7 @@ def add_info_to_db
       measurement_unit: 'Pieces',
       price: 2.49,
       quantity: 20,
-      user: user
+      user:
     )
   end
 
@@ -43,22 +43,22 @@ def add_info_to_db
       cooking_time: 45,
       description: 'This is a test recipe.',
       public: true,
-      user: user
+      user:
     )
   end
 
   let!(:recipe_food1) do
     RecipeFood.create(
-      quantity: 2,
-      recipe: recipe,
+      quantity: 100,
+      recipe:,
       food: food1
     )
   end
 
   let!(:recipe_food2) do
     RecipeFood.create(
-      quantity: 3,
-      recipe: recipe,
+      quantity: 100,
+      recipe:,
       food: food2
     )
   end

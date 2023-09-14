@@ -13,7 +13,7 @@ RSpec.describe Recipe, type: :model do
       preparation_time: 30,
       cooking_time: 60,
       description: 'A delicious recipe.',
-      user: user
+      user:
     )
 
     expect(recipe).to be_valid
