@@ -1,32 +1,9 @@
-<div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
-
-  <p>
-    <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
-  </p>
-
-  <p>
-    <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= recipe.description %>
-  </p>
-
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= recipe.user_id %>
-  </p>
-
-</div>
+    <li class="list-group-item mb-1 container">
+    <div class=row>
+      <div class="col-3">
+        <%= content_tag :h3, recipe.name %>
+        <%= button_to "REMOVE", recipe, method: :delete, class:"btn btn-danger" %>
+      </div>
+      <%= content_tag :p, recipe.description.truncate(200), class:'col ps-5 text-start' %>
+    </div>
+    </li>
