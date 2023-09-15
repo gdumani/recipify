@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :foods 
   resources :recipes
   get 'recipes_public', to: 'recipes#public_list', as: 'recipes_public_list'
+  patch 'recipes/:id/update_public', to: 'recipes#update_public', as: 'update_public'
 
   resources :users
   resources :foods do

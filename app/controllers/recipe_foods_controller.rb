@@ -1,5 +1,6 @@
 class RecipeFoodsController < ApplicationController
   before_action :set_recipe_food, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /recipe_foods or /recipe_foods.json
   def index
@@ -11,19 +12,22 @@ class RecipeFoodsController < ApplicationController
 
   # GET /recipe_foods/new
   def new
-    @recipe_food = RecipeFood.new
+    @foods = Food.all
+    @recipe_food = RecipeFood.new recipe_id: params[:format]
   end
 
   # GET /recipe_foods/1/edit
-  def edit; end
+  def edit
+    @foods = Food.all
+  end
 
   # POST /recipe_foods or /recipe_foods.json
   def create
     @recipe_food = RecipeFood.new(recipe_food_params)
-
+    @recipe_food.recipe_id = params[:recipe_food][:recipe_id]
     respond_to do |format|
       if @recipe_food.save
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully created.' }
+        format.html { redirect_to recipe_path(@recipe_food.recipe_id), notice: 'Recipe food was successfully created.' }
         format.json { render :show, status: :created, location: @recipe_food }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +40,7 @@ class RecipeFoodsController < ApplicationController
   def update
     respond_to do |format|
       if @recipe_food.update(recipe_food_params)
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully updated.' }
+        format.html { redirect_to recipe_path(@recipe_food.recipe_id), notice: 'Recipe food was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe_food }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,10 +51,11 @@ class RecipeFoodsController < ApplicationController
 
   # DELETE /recipe_foods/1 or /recipe_foods/1.json
   def destroy
+    recipe_id = @recipe_food.recipe_id
     @recipe_food.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipe_foods_url, notice: 'Recipe food was successfully destroyed.' }
+      format.html { redirect_to recipe_path(recipe_id), notice: 'Recipe food was successfully deleted.' }
       format.json { head :no_content }
     end
   end

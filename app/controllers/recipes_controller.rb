@@ -12,7 +12,9 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @modify = current_user.id == @recipe.user_id
+  end
 
   # GET /recipes/new
   def new
@@ -48,6 +50,11 @@ class RecipesController < ApplicationController
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def update_public
+    @recipe.update(public: !@recipe.public)
+    redirect_to recipe_url(@recipe)
   end
 
   # DELETE /recipes/1 or /recipes/1.json
