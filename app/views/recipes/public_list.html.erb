@@ -4,7 +4,7 @@
 </div>
 
 <ul class = "list-group">
-  <% @recipes.each do |recipe| %>
+  <% @recipes.includes(:user).each do |recipe| %>
     <li class="list-group-item mb-1 container">
     <div class=row>
       <div class="col">

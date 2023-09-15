@@ -19,7 +19,7 @@
     <tbody>
       <% @foods.each do |food| %>
         <tr>
-          <td><%= food.name %></td>
+          <td><%= link_to(food.name, food_path(food)) %></td>
           <td><%= food.measurement_unit %></td>
           <td><%= number_to_currency(food.price) %></td>
           <td>
