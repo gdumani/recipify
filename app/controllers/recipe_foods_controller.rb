@@ -1,5 +1,6 @@
 class RecipeFoodsController < ApplicationController
   before_action :set_recipe_food, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /recipe_foods or /recipe_foods.json
   def index
@@ -11,7 +12,9 @@ class RecipeFoodsController < ApplicationController
 
   # GET /recipe_foods/new
   def new
-    @recipe_food = RecipeFood.new
+    puts '-------------params------------------', params, '-------------params------------------', params[:id]
+    @foods = Food.all
+    @recipe_food = RecipeFood.new recipe_id: params[:id]
   end
 
   # GET /recipe_foods/1/edit
