@@ -2,6 +2,8 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_recipe, except: %i[index new create public_list]
 
+  rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key
+
   # GET /recipes or /recipes.json
   def index
     @recipes = Recipe.where(user_id: current_user.id)
@@ -78,5 +80,9 @@ class RecipesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
+  end
+
+  def invalid_foreign_key exception
+    redirect_to recipes_url, alert: "Can't delete recipe because it already has foods."
   end
 end

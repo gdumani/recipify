@@ -2,6 +2,8 @@ class FoodsController < ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
+  rescue_from ActiveRecord::InvalidForeignKey, with: :invalid_foreign_key
+
   # GET /foods or /foods.json
   def index
     # select all foods that belongs to the current user
@@ -69,4 +71,10 @@ class FoodsController < ApplicationController
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
   end
+  
+  def invalid_foreign_key exception
+    redirect_to foods_url, alert: "Can't delete food because it's used in a recipe."
+  end
 end
+
+

@@ -12,13 +12,13 @@ class RecipeFoodsController < ApplicationController
 
   # GET /recipe_foods/new
   def new
-    @foods = Food.all
+    @foods = current_user.foods
     @recipe_food = RecipeFood.new recipe_id: params[:format]
   end
 
   # GET /recipe_foods/1/edit
   def edit
-    @foods = Food.all
+    @foods = current_user.foods
   end
 
   # POST /recipe_foods or /recipe_foods.json
