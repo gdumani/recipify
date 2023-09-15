@@ -6,6 +6,7 @@ RSpec.describe 'Recipes Index Page', type: :system do
 
   scenario 'User can see the list of recipes' do
     login(user.email, user.password)
+    sleep(1)
     visit '/recipes_public'
 
     expect(page).to have_content('Public Recipes')

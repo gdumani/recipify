@@ -6,9 +6,8 @@ RSpec.describe 'Recipes Index Page', type: :system do
 
   scenario 'User can see the list of recipes' do
     login(user.email, user.password)
+    sleep(1)
     visit '/recipes'
-    sleep(1) # Wait for the page to load
-
     expect(page).to have_content('Recipes')
     expect(page).to have_button('New recipe')
     expect(page).to have_content('This is a test recipe.')
@@ -16,6 +15,7 @@ RSpec.describe 'Recipes Index Page', type: :system do
 
   scenario 'User can click "New recipe" and be redirected to the new recipe page' do
     login(user.email, user.password)
+    sleep(1)
     visit recipes_path
     click_button('New recipe')
 

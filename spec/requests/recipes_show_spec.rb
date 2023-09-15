@@ -7,10 +7,10 @@ RSpec.describe 'Recipe Show Page', type: :system do
 
   scenario 'User can view details of a recipe' do
     login(user.email, user.password)
+    sleep(1)
 
     # Visit the recipe show page, replace ':id' with the actual recipe ID
     visit recipe_path(recipe)
-    sleep(1)
 
     # Assertions to check if the expected content is present on the page
     expect(page).to have_content(recipe.name)
@@ -23,9 +23,9 @@ RSpec.describe 'Recipe Show Page', type: :system do
 
   scenario 'User can modify recipe details if allowed' do
     login(user.email, user.password)
+    sleep(1)
 
     visit recipe_path(recipe)
-    sleep(1)
 
     expect(page).to have_button('Modify')
     expect(page).to have_button('Remove')

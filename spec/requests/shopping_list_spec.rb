@@ -7,8 +7,8 @@ RSpec.describe 'Shopping List Page', type: :system do
   describe 'shopping list functionality' do
     before do
       login(user.email, user.password)
+      sleep(1)
       visit '/shopping_list'
-      sleep(2)
     end
 
     scenario 'User can see the shopping list' do

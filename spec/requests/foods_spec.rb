@@ -18,8 +18,8 @@ RSpec.describe 'Foods Index Page', type: :system do
 
   scenario 'User can see the list of foods' do
     login(user.email, user.password)
-    visit foods_path
     sleep(1)
+    visit foods_path
     expect(page).to have_content('Foods')
     expect(page).to have_content('Add Food')
     expect(page).to have_content('Food 1')
@@ -32,6 +32,7 @@ RSpec.describe 'Foods Index Page', type: :system do
 
   scenario 'User can click "Add Food" and be redirected to the new food page' do
     login(user.email, user.password)
+    sleep(1)
     visit foods_path
     click_link('Add Food')
     expect(current_path).to eq(new_food_path)
