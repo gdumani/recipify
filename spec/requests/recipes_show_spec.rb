@@ -27,11 +27,9 @@ RSpec.describe 'Recipe Show Page', type: :system do
     visit recipe_path(recipe)
     sleep(1)
 
-    # Assertions and interactions for modifying recipe details
     expect(page).to have_button('Modify')
     expect(page).to have_button('Remove')
 
-    # Add interactions to click buttons and perform modifications
     first('button', text: 'Modify').click
     expect(current_path).to eq(edit_recipe_food_path(recipe_food1))
   end
