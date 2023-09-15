@@ -12,5 +12,4 @@ RSpec.describe 'Recipes Index Page', type: :system do
     expect(page).to have_content('Test Recipe')
     expect(page).to have_content('By: Test User')
   end
-
 end
