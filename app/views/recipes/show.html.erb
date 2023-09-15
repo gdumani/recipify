@@ -9,7 +9,7 @@
   <%= content_tag :p, "Instructions: #{@recipe.description}", class: "col-12" %>
   <% if @modify %>
   <%= button_to 'Generate shopping list', shopping_list_index_path, method: :get, class: "col-6" %>
-  <div class='col-6 text-end'> <%= button_to 'Add ingredient', new_recipe_food_path(@recipe.id), method: :get %> </div>
+  <div class='col-6 text-end'> <%= button_to 'Add ingredient', new_recipe_food_path(@recipe), method: :get %> </div>
   <% end %>
 </div>
 <hr>
@@ -26,9 +26,9 @@
     <td><%= "#{rf.quantity} #{rf.food.measurement_unit}" %></td>
       <td><%= rf.food.price*rf.quantity %></td>
       <% if (@recipe.user == current_user) %>
-      <td>
-        <%# <%= button_to 'edit', recipe_food_edit_path(rf) %>
-        <%= button_to 'Remove', recipe_food_delete_path(rf), method: :delete %>
+      <td class= "d-flex flex-row justify-content-center">
+        <%= button_to 'Modify', edit_recipe_food_path(rf), method: :get %>
+        <%= button_to 'Remove', recipe_food_path(rf), method: :delete %> 
       </td>
       <% end %>
     </tr>

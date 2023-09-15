@@ -2,7 +2,7 @@
 <%= content_tag :h1, 'Add ingredients' %>
 
 <%= form_for @recipe_food, url: recipe_foods_path do |f| %>
-  <%= f.hidden_field :recipe_id, value: @recipe_food.id %>
+  <%= f.hidden_field :recipe_id, value: @recipe_food.recipe_id %>
 
   <%= f.label :foods, 'Select food item' %>
   <%= f.collection_select  :food_id, @foods, :id, :name %>
