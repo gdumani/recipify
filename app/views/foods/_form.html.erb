@@ -1,4 +1,4 @@
-<div class='container py-5'>
+<div class='container pt-3'>
   <%= form_with(model: food) do |form| %>
     <% if food.errors.any? %>
       <div style="color: red">
@@ -32,8 +32,8 @@
       <%= form.number_field :quantity, class: 'form-control' %>
     </div>
 
-    <div>
-      <%= form.submit class: 'btn btn-primary' %>
+    <div  class="mt-5">
+      <%= form.submit class: 'btn btn-primary btn-sm' %>
     </div>
   <% end %>
 </div>
