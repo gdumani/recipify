@@ -1,9 +1,15 @@
-<h1>New recipe food</h1>
+<div class = wrapper>
+<%= content_tag :h1, 'Add ingredients' %>
 
-<%= render "form", recipe_food: @recipe_food %>
+<%= form_for @recipe_food, url: recipe_foods_path do |f| %>
+  <%= f.hidden_field :recipe_id, value: @recipe_food.recipe_id %>
 
-<br>
-
-<div>
-  <%= link_to "Back to recipe foods", recipe_foods_path %>
-</div>
+  <%= f.label :foods, 'Select food item' %>
+  <%= f.collection_select  :food_id, @foods, :id, :name %>
+  <br>
+  <%= f.label :quantity, 'Quantity' %>
+  <%= f.number_field :quantity %>
+  <br>
+  
+  <%= f.submit %>
+<% end %>
