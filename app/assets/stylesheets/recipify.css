@@ -118,12 +118,10 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 400px;
   padding: 15px;
   text-align: center;
   z-index: 1000;
-  opacity: 0;
-  transition: opacity 3s ease-in-out;
+  transition: all 3s ease-in-out;
   font-weight: bold;
 }
 
