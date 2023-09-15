@@ -52,7 +52,7 @@ class RecipesController < ApplicationController
       end
     end
   end
- 
+
   def update_public
     @recipe.update(public: !@recipe.public)
     redirect_to recipe_url(@recipe)

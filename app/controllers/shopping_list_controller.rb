@@ -3,7 +3,7 @@ class ShoppingListController < ApplicationController
   def index
     @user = current_user
     @missing_foods = calculate_missing_foods(@user)
-    @total_price = calculate_total_price(@missing_foods)    
+    @total_price = calculate_total_price(@missing_foods)
   end
 
   private
