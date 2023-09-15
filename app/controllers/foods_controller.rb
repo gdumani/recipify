@@ -71,10 +71,8 @@ class FoodsController < ApplicationController
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
   end
-  
-  def invalid_foreign_key exception
+
+  def invalid_foreign_key(_exception)
     redirect_to foods_url, alert: "Can't delete food because it's used in a recipe."
   end
 end
-
-

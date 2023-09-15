@@ -82,7 +82,7 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
   end
 
-  def invalid_foreign_key exception
+  def invalid_foreign_key(_exception)
     redirect_to recipes_url, alert: "Can't delete recipe because it already has foods."
   end
 end
