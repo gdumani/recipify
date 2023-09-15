@@ -12,7 +12,7 @@ RSpec.describe 'Recipes Index Page', type: :system do
     expect(page).to have_content('Public Recipes')
     expect(page).to have_content('Test Recipe')
     expect(page).to have_content('By: Test User')
-end
+  end
 
   scenario 'User can click "New recipe" and be redirected to the new recipe page' do
     login(user.email, user.password)

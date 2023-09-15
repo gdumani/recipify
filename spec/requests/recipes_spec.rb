@@ -12,7 +12,7 @@ RSpec.describe 'Recipes Index Page', type: :system do
     expect(page).to have_content('Recipes')
     expect(page).to have_button('New recipe')
     expect(page).to have_content('This is a test recipe.')
-end
+  end
 
   scenario 'User can click "New recipe" and be redirected to the new recipe page' do
     login(user.email, user.password)
