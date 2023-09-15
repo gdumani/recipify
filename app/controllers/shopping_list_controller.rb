@@ -3,14 +3,14 @@ class ShoppingListController < ApplicationController
   def index
     @user = current_user
     @missing_foods = calculate_missing_foods(@user)
-    @total_price = calculate_total_price(@missing_foods)
+    @total_price = calculate_total_price(@missing_foods)    
   end
 
   private
 
   def calculate_missing_foods(user)
     # Get all recipes of the user
-    user_recipes = user.recipes.includes(:foods)
+    user_recipes = user.recipes.includes(:recipe_foods)
 
     # Initialize a hash to track the missing foods and their required quantities
     missing_foods = Hash.new(0)
@@ -19,7 +19,7 @@ class ShoppingListController < ApplicationController
     required_quantity_by_food_id = calculate_required_quantity(user_recipes)
 
     # Get the user's foods with recipe_foods
-    user_foods = user.foods.includes(:recipe_foods)
+    user_foods = user.foods
 
     # Compare the total required quantity with the quantity in foods
     calculate_missing_and_store(user_foods, required_quantity_by_food_id, missing_foods)
