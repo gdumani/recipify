@@ -1,5 +1,6 @@
-<a name="readme-top"></a>
-  <h3><b>BLOGAPP</b></h3>
+a name="readme-top"></a>
+  <h3><b>RECIPIFY
+</b></h3>
 
 </div>
 
@@ -29,15 +30,20 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [BLOGAPP] <a name="about-project"></a>
+# 📖 [RECIPIFY] <a name="about-project"></a>
 
-**[Blogapp]** is blog application written using Rails and Postgresql
+**[RECIPIFY]** app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
 
 ## 🛠 Built With <a name="built-with"></a> 
 
 - Ruby v3.2.2
 - Rails v7.0.5
 - Postgresql v15.3
+- Devise
+- CanCanCan
+- Bullet
+- Rspec
+- Capybara
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -67,8 +73,12 @@
 ### Key Features <a name="key-features"></a>
 
 
-- **[Create users, posts, comments and likes]**
-- **[Uses Postgresql for Web hosting compatibility]**
+- **[User login and sign up]**
+- **[Food, personal recipes and public recipes]**
+- **[Recipies details]**
+- **[Shopping list]**
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -106,8 +116,7 @@ install Rails
 Clone this repository to your desired folder:
 
 ```sh
-gh repo clone gdumani/blogapp
-
+gh repo clone gdumani/recipify
 ```
 --->
 
@@ -115,16 +124,14 @@ gh repo clone gdumani/blogapp
 
 Install this project with:
 
-<!--
-Example command:
 
 ```sh
-  cd blogapp
+  cd recipify
   bundle install
   rails db:setup
   rails db:migrate
 ```
---->
+-
 
 ### Usage
 
@@ -133,8 +140,8 @@ To run the project, execute the following command:
 ```sh
   rails server
 ```
+Open the following ing in your web browser `http://localhost:3000`
 
-<!--
 ### Run tests
 
 To run tests, run the following command:
@@ -142,9 +149,9 @@ To run tests, run the following command:
 Example command:
 
 ```sh
-  bin/rails test test/models/article_test.rb
+  rspec
 ```
---->
+-
 
 <!--
 ### Deployment
@@ -163,6 +170,12 @@ Example:
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
+
+
+👤 **JIC Software (Jorge Camargo)**
+- GitHub: [@jicamargo](https://github.com/jicamargo)
+- LinkedIn: [Jorge Camargo](https://www.linkedin.com/in/jorgecamargog/?locale=en_US)
+
 
 
 👤 **Giancarlo Dumani**
@@ -185,7 +198,9 @@ Example:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- [ ] **[Add user authentication]**
+- [ ] **[Inventory list and details]**
+- [ ] **[Shopping list based on in inventory availabilty ]**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
