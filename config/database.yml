@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: recipify_production
-  username: recipify
-  password: <%= ENV["RECIPIFY_DATABASE_PASSWORD"] %>
+ url: <%= ENV['DATABASE_URL'] %>
